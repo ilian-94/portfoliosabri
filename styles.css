@@ -1,0 +1,271 @@
+:root {
+  --primary-color: #ff6347;  /* Le rouge corail pour les éléments comme les boutons */
+  --secondary-color: #0f3460;  /* Bleu foncé pour les accents */
+  --background-dark: #7f0000;  /* Un fond rouge foncé */
+  --text-light: #ffffff;  /* Texte en blanc */
+  --transition: all 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #b01d2e, #ff4e50);  /* Dégradé de rouge avec plus de contraste */
+  color: var(--text-light);  /* Texte en blanc pour toute la page */
+  line-height: 1.8;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Navigation */
+.navbar {
+  background: linear-gradient(135deg, #b01d2e, #ff4e50);  /* Dégradé de rouge pour la navbar */
+  padding: 2rem 2rem;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-light);  /* Le logo en blanc */
+}
+
+.nav-links {
+  display: flex;
+  gap: 3rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-light);  /* Texte en blanc pour les liens de la navbar */
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);  /* Changer la couleur en rouge corail au survol */
+  transform: translateY(-3px);
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #b01d2e, #ff4e50);  /* Dégradé de rouge avec plus de contraste pour la section Hero */
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  padding-top: 120px;
+}
+
+.hero-content {
+  z-index: 1;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin: 0 auto 2.5rem;
+  border: 3px solid var(--primary-color);
+  background-image: url("profile.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+/* Effet de texte dynamique */
+.typing-effect {
+  font-size: 3.5rem;
+  margin-bottom: 2.5rem;
+  color: var(--text-light);  /* Texte dynamique en blanc */
+  position: relative;
+  display: inline-block;
+  margin-top: 60px;
+}
+
+.typing-effect::after {
+  content: "|";
+  position: absolute;
+  right: -10px;
+  animation: blink 0.7s infinite;
+}
+
+/* Sections */
+.section {
+  padding: 8rem 0;
+}
+
+.section h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-light);  /* Titre des sections en blanc */
+}
+
+#contact h2 {
+  text-align: left;
+  color: var(--text-light);  /* Titre de la section "Contact" en blanc */
+}
+
+/* Skills Section */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  margin-top: 5rem;
+}
+
+.skill-card {
+  background: rgba(255, 255, 255, 0.1);  /* Plus de contraste avec un fond plus clair pour les cartes de compétences */
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+.skill-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 1.5rem;
+}
+
+/* Projects Section */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-top: 5rem;
+}
+
+.project-card {
+  background: rgba(255, 255, 255, 0.1);  /* Même effet que pour les cartes de compétences */
+  border-radius: 15px;
+  overflow: hidden;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.project-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  border-radius: 15px 15px 0 0;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+/* Experience Section */
+.experience-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.experience-item {
+  background: rgba(255, 255, 255, 0.1);  /* Plus de contraste pour les items d'expérience */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.experience-content h3 {
+  margin-top: 0;
+  color: var(--text-light);  /* Titre de l'expérience en blanc */
+}
+
+.experience-content .date {
+  font-size: 0.9em;
+  color: var(--text-light);  /* Date de l'expérience en blanc */
+  margin-bottom: 10px;
+}
+
+/* Contact Form */
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 5rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 1.4rem;
+  background: rgba(255, 255, 255, 0.1);  /* Plus clair pour les champs de saisie */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  color: var(--text-light);  /* Texte des champs de saisie en blanc */
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.submit-btn {
+  background: var(--primary-color);
+  color: white;
+  padding: 1.4rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.submit-btn:hover {
+  background: var(--secondary-color);
+  transform: translateY(-3px);
+}
