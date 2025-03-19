@@ -201,6 +201,63 @@
             </div>
         </div>
     </footer>
+    
+    <div id="cookie-banner" style="display:none; position: fixed; bottom: 0; width: 100%; background: #333; color: white; text-align: center; padding: 10px;">
+        🚨 Ce site utilise des cookies pour améliorer votre expérience. Vous pouvez accepter ou refuser leur utilisation.
+       <a href="politique-de-confidentialite.html">Politique de cookies</a>
+        <button onclick="acceptCookies()" style="margin-left: 10px; background: #28a745; color: white; border: none; padding: 5px 10px; cursor: pointer;">
+            Accepter
+        </button>
+        <button onclick="refuseCookies()" style="margin-left: 5px; background: #dc3545; color: white; border: none; padding: 5px 10px; cursor: pointer;">
+            Refuser
+        </button>
+    </div>
+
+    <script>
+        
+        function setCookie(name, value, days) {
+            let expires = "";
+            if (days) {
+                let date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + value + "; path=/;" + expires;
+        }
+
+       
+        function getCookie(name) {
+            let nameEQ = name + "=";
+            let cookiesArray = document.cookie.split(';');
+            for (let i = 0; i < cookiesArray.length; i++) {
+                let cookie = cookiesArray[i].trim();
+                if (cookie.indexOf(nameEQ) === 0) {
+                    return cookie.substring(nameEQ.length, cookie.length);
+                }
+            }
+            return null;
+        }
+
+        
+        function checkCookieConsent() {
+            if (!getCookie("cookieConsent")) {
+                document.getElementById("cookie-banner").style.display = "block";
+            }
+        }
+
+        function acceptCookies() {
+            setCookie("cookieConsent", "accepted", 365);
+            document.getElementById("cookie-banner").style.display = "none";
+        }
+
+
+        function refuseCookies() {
+            setCookie("cookieConsent", "refused", 365);
+            document.getElementById("cookie-banner").style.display = "none";
+        }
+
+        document.addEventListener("DOMContentLoaded", checkCookieConsent);
+    </script>
 
     <script src="script.js"></script>
 </body>
